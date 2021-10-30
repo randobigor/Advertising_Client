@@ -1,0 +1,31 @@
+<!-- Default unchecked -->
+<div class="row">
+  <div class="custom-control custom-radio mr-3">
+    <input type="radio" class="custom-control-input" id="dailyReport" name="defaultExampleRadios" mdbInput checked (click)="changeTimeGap('daily')">
+    <label class="custom-control-label" for="dailyReport">День</label>
+  </div>
+  <div class="custom-control custom-radio mr-3" >
+    <input type="radio" class="custom-control-input" id="monthlyReport" name="defaultExampleRadios" mdbInput (click)="changeTimeGap('monthly')">
+    <label class="custom-control-label" for="monthlyReport">Месяц</label>
+  </div>
+  <div class="custom-control custom-radio mr-3" >
+    <input type="radio" class="custom-control-input" id="yearlyReport" name="defaultExampleRadios" mdbInput (click)="changeTimeGap('yearly')">
+    <label class="custom-control-label" for="yearlyReport">Год</label>
+  </div>
+  <div class="custom-control custom-radio mr-3" >
+  <input type="radio" class="custom-control-input" id="allTimeReport" name="defaultExampleRadios" mdbInput (click)="changeTimeGap('all_time')">
+  <label class="custom-control-label" for="allTimeReport">Все время</label>
+</div>
+
+</div>
+<h1>Daily report</h1>
+<div style="display: block">
+  <canvas mdbChart
+          [chartType]="chartType"
+          [datasets]="chartDatasets"
+          [labels]="chartLabels"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [legend]="true">
+  </canvas>
+</div>

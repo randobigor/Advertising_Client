@@ -1,0 +1,17 @@
+<div *ngIf="adverts.length == 0">
+  Ну, похоже тут ничего нет. Может вы будете первым?
+</div>
+
+<div class="card-columns">
+  <mdb-card *ngFor="let advert of adverts" class="border-0" routerLink="/{{advert.id}}" style="cursor: pointer; background-color: transparent !important;">
+    <img class="card-img-top" [src]="advert.pictures.length > 0 ? advert.pictures[0].picture : env.noAdPicture" style="height: 15rem; object-fit: cover; border-radius: 5px" alt="Card image cap">
+    <div class="p-0">
+      <mdb-card-title>
+        <p class="h4 m-0">{{advert.title}}</p>
+      </mdb-card-title>
+      <mdb-card-text>
+        <div class="text-primary ">{{advert.price | mdlCurrency}}</div>
+      </mdb-card-text>
+    </div>
+  </mdb-card>
+</div>

@@ -1,0 +1,44 @@
+<p class="h4 my-3 text-center">Подать объявление</p>
+<div class="text-center border border-light p-3 rounded">
+  <mdb-carousel *ngIf="advert.pictures.length > 0" class="carousel slide carousel-fade" animation="fade">
+    <mdb-carousel-item *ngFor="let picture of advert.pictures">
+      <img class="d-block w-100" [src]="picture.picture" alt="ALT">
+    </mdb-carousel-item>
+  </mdb-carousel>
+<!--  <img class="my-3" style="height: 15rem; width: 40rem; object-fit: cover; border-radius: 10px" [src]="advert.picture ? advert.picture : blankAdPicture" alt="Ad picture">-->
+
+  <div class="row mb-3">
+    <div class="col">
+      <label for="category" class="float-left m-1">Категория</label>
+      <select id="category" class="custom-select" [(ngModel)]="advert.category.id">
+        <option selected disabled>Выберите категорию</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="region" class="float-left m-1">Регион</label>
+      <select id="region" class="custom-select" [(ngModel)]="advert.region.id">
+        <option selected>Выберите регион</option>
+        <option *ngFor="let region of regions" [value]="region.id">{{region.name}}</option>
+      </select>
+    </div>
+  </div>
+
+  <label for="title" class="float-left m-1">Заголовок объявления</label>
+  <input type="tel" id="title" [(ngModel)]="advert.title" class="form-control mb-4"  placeholder="Введите заголовок объявления">
+
+  <label for="description" class="float-left m-1">Описание объявления</label>
+  <textarea id="description" [(ngModel)]="advert.description" class="form-control mb-4" placeholder="Введите описание объявления"></textarea>
+
+  <div class="row">
+    <div class="col-8">
+      <label for="pictureInput" class="float-left m-1">Выберите кратинку</label>
+      <input type="file" accept="image/*" id="pictureInput" class="form-control mb-4" (change)="processPicture($event)">
+    </div>
+    <div class="col">
+      <label for="priceInput" class="float-left m-1">Укажите цену</label>
+      <input type="text" id="priceInput" [(ngModel)]="advert.price" class="form-control mb-4" placeholder="Введите заголовок объявления">
+    </div>
+  </div>
+  <button type="button" mdbBtn color="info" mdbWavesEffect (click)="submitAd()">Подать</button>
+</div>

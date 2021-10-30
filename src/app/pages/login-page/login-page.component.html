@@ -1,0 +1,10 @@
+<div class="text-center border border-light p-3 mt-5 mx-auto" style="width: 25rem">
+
+  <p class="h4 mb-4">Sign in</p>
+  <input type="email" id="defaultLoginFormEmail" [(ngModel)]="credentials.username" class="form-control mb-4" placeholder="E-mail">
+  <input type="password" id="defaultLoginFormPassword" [(ngModel)]="credentials.password" class="form-control mb-4" placeholder="Пароль">
+  <button mdbBtn color="info" block="true" class="my-4" (click)="login()">Войти</button>
+  <p>Нет аккаунта?
+    <a href="">Зарегестрироваться</a>
+  </p>
+</div>

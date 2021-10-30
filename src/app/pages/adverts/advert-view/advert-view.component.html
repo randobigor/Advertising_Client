@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-9">
+    <h3 class="font-weight-bold">{{advert.title}}</h3>
+    <mdb-carousel *ngIf="advert.pictures.length > 0" class="carousel slide carousel-fade" animation="fade">
+      <mdb-carousel-item *ngFor="let picture of advert.pictures">
+        <img class="d-block w-100" [src]="picture.picture" alt="ALT">
+      </mdb-carousel-item>
+    </mdb-carousel>
+
+    <h5 class="mt-3">{{advert.description}}</h5>
+
+    <h4 class="mt-4">Цена: <b class="font-weight-bold">{{advert.price | mdlCurrency}}</b></h4>
+    <h4>Регион: {{advert.region.name}}</h4>
+    <h4>Контакты: {{advert.user.phone}}</h4>
+  </div>
+  <div class="col-3">
+    <h5 class="mt-4"><mdb-icon fas icon="user-circle" class="mr-1"></mdb-icon>{{advert.user.nickname}}</h5>
+    <p>Опубликовано: {{advert.publicationDate | dateTime}}</p>
+  </div>
+</div>
